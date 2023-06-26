@@ -57,12 +57,13 @@ export const Todos = () => {
     setTodos(updatedTodos);
   };
   return (
-    <section>
+    <section className="w-10/12 sm:w-10/12 lg:w-1/2 max-w-2xl flex flex-col items-center">
       <AddTodo
         task={task}
         handleChange={handleChange}
         handleSubmitTodo={handleSubmitTodo}
       />
+      <div className="h-10" />
       {todos.map((todo) => (
         <Row
           key={todo.id}
@@ -71,7 +72,7 @@ export const Todos = () => {
           handleCheckTodo={handleCheckTodo}
         />
       ))}
-      {!hasTodos && <p>Please add a task</p>}
+      {!hasTodos && <p className="mb-5 text-xl text-red-500 uppercase">Please add a task</p>}
       {hasTodos && (
         <p>{`[${remainingTodos} of ${todosLength}] todos remaining`}</p>
       )}
