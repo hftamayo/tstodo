@@ -13,6 +13,9 @@ type Todo = {
 export const Todos = () => {
   const [todos, setTodos] = useState<Todo[]>(data);
   const [task, setTask] = useState("");
+  const todosLength = todos.length;
+  const hasTodos = todos.length > 0;
+  const remainingTodos = todos.filter((todo) => !todo.isCompleted).length;
 
   const handleAddTodo = (todo: Todo) => {
     const updatedTodos = [...todos, todo];
@@ -68,6 +71,10 @@ export const Todos = () => {
           handleCheckTodo={handleCheckTodo}
         />
       ))}
+      {!hasTodos && <p>Please add a task</p>}
+      {hasTodos && (
+        <p>{`[${remainingTodos} of ${todosLength}] todos remaining`}</p>
+      )}
     </section>
   );
 };
