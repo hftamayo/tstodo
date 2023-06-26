@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent } from "react";
-import { ReactComponent as PlusIcon } from "../assets/svg/plus.svg";
+import { FcApproval } from "react-icons/fc";
 
 export type AddTodoProps = {
   task: string;
@@ -21,7 +21,7 @@ export const AddTodo = ({
       onChange={(handleChange) => null}
     />
     <button type="submit" aria-label="Add todo">
-      <PlusIcon />
+      <FcApproval />
     </button>
   </form>
 );
