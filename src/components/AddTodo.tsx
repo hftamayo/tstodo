@@ -21,7 +21,7 @@ export const AddTodo = ({
       onChange={(handleChange) => null}
     />
     <button type="submit" aria-label="Add todo">
-      <FcApproval />
+      <FcApproval size={50} />
     </button>
   </form>
 );
