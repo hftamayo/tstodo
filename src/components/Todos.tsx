@@ -3,12 +3,7 @@ import { Row } from "./Row";
 import { data } from "../todos";
 import { AddTodo } from "./AddTodo";
 import { v4 as uuidv4 } from "uuid";
-
-type Todo = {
-  id: string;
-  task: string;
-  isCompleted: boolean;
-};
+import { Todo } from "../types";
 
 export const Todos = () => {
   const [todos, setTodos] = useState<Todo[]>(data);
@@ -16,6 +11,24 @@ export const Todos = () => {
   const todosLength = todos.length;
   const hasTodos = todos.length > 0;
   const remainingTodos = todos.filter((todo) => !todo.isCompleted).length;
+
+  const handleCheckTodo = (id: string) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          isCompleted: !todo.isCompleted,
+        };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
+  const handleDeleteTodo = (id: string) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
 
   const handleAddTodo = (todo: Todo) => {
     const updatedTodos = [...todos, todo];
@@ -39,23 +52,6 @@ export const Todos = () => {
     task && handleAddTodo(todo);
   };
 
-  const handleDeleteTodo = (id: string) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
-  };
-
-  const handleCheckTodo = (id: string) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          isCompleted: !todo.isCompleted,
-        };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
   return (
     <section className="w-10/12 sm:w-10/12 lg:w-1/2 max-w-2xl flex flex-col items-center">
       <AddTodo
@@ -72,7 +68,9 @@ export const Todos = () => {
           handleCheckTodo={handleCheckTodo}
         />
       ))}
-      {!hasTodos && <p className="mb-5 text-xl text-red-500 uppercase">Please add a task</p>}
+      {!hasTodos && (
+        <p className="mb-5 text-xl text-red-500 uppercase">Please add a task</p>
+      )}
       {hasTodos && (
         <p>{`[${remainingTodos} of ${todosLength}] todos remaining`}</p>
       )}
