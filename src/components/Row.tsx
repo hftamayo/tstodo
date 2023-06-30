@@ -1,14 +1,4 @@
-type Todo = {
-  id: string;
-  task: string;
-  isCompleted: boolean;
-};
-
-type TodoProps = {
-  todo: Todo;
-  handleDeleteTodo: (id: string) => void;
-  handleCheckTodo: (id: string) => void;
-};
+import { TodoProps } from "../types";
 
 export const Row = ({
   todo: { task, isCompleted, id },
