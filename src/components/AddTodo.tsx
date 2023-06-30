@@ -8,7 +8,7 @@ export const AddTodo = ({
 }: AddTodoProps) => (
   <form
     className="flex justify-between w-full"
-    onSubmit={(handleSubmitTodo) => null}
+    onSubmit={(handleSubmitTodo)}
   >
     <input
       type="text"
