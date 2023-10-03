@@ -11,7 +11,7 @@ Very basic project for ToDo Notes, the main objective is to apply TypeScript gui
 ## Version 1 specs ##
 
 ### Technical Stack ###
-* FrontEnd: React and TypeScript
+* FrontEnd: React, Tailwind and TypeScript
 * BackEnd: No DataSource. In Memory records
 * Architecture: Not covered
 
