@@ -21,8 +21,14 @@ Very basic project for ToDo Notes, the main objective is to apply TypeScript gui
 ### Aditional info ###
 * N/A
 
+## Snapshots ##
+![localhost](./snapshots/view.png)
+
 ## Proof of Concept ##
 [Todo]
 
 ## Bugs ##
 Please refer to the Issues section in this repository
+
+## References ##
+[Original Tutorial](https://youtu.be/zx_879gAoYo?si=QT2cu-YL0gf89p9P)
